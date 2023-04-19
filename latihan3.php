@@ -1,19 +1,6 @@
 <?php
-// Koneksi ke DB & Pilih Database
-$conn = myslqi_connect('localhost', 'root', '', 'pw_043040023');
-
-// Query isi tabel Mahasiswa
-$result = mysqli_query($conn, "SELECT * FROM mahasiswa");
-
-//ubah data ke dalam array
-$rows =[];
-while ($row = myslqi_fetch_assoc($result)){
-    $rows[] = $row;
-}
-
-//tampung ke variabel Mahasiswa
-$mahasiswa = $rows;
-
+require 'function.php';
+$mahasiswa = query("SELECT * FROM mahasiswa");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,10 +17,7 @@ $mahasiswa = $rows;
     <tr>
         <th>#</th>
         <th>Gambar</th>
-        <th>NRP</th>
         <th>Nama</th>
-        <th>Email</th>
-        <th>Jurusan</th>
         <th>Aksi</th>
     </tr>
 
@@ -44,13 +28,9 @@ $mahasiswa = $rows;
         <td>
             <img src="<?= $m['gambar']; ?>" alt="">
         </td>
-        <td><?= $m['nrp']; ?></td>
         <td><?= $m['nama']; ?></td>
-        <td><?= $m['email']; ?></td>
-        <td><?= $m['jurusan']; ?></td>
         <td>
-            <a href="">ubah</a> 
-            <a href="">hapus</a> 
+            <a href="detail.php?id=<?= $m['id']; ?>">lihat detail</a> 
         </td>
     </tr>    
     <?php endforeach;?>

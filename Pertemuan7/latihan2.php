@@ -1,19 +1,6 @@
 <?php
-// Koneksi ke DB & Pilih Database
-$conn = myslqi_connect('localhost', 'root', '', 'pw_043040023');
-
-// Query isi tabel Mahasiswa
-$result = mysqli_query($conn, "SELECT * FROM mahasiswa");
-
-//ubah data ke dalam array
-$rows =[];
-while ($row = myslqi_fetch_assoc($result)){
-    $rows[] = $row;
-}
-
-//tampung ke variabel Mahasiswa
-$mahasiswa = $rows;
-
+require 'function.php';
+$mahasiswa = query("SELECT * FROM mahasiswa");
 ?>
 <!DOCTYPE html>
 <html lang="en">
