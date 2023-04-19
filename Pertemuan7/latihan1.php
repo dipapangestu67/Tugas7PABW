@@ -1,13 +1,13 @@
 <?php
 // Koneksi ke DB & Pilih Database
-$conn = myslqi_connect('localhost', 'root', '', 'pw_043040023');
+$conn = mysqli_connect('localhost', 'root', '', 'pw_043040023');
 
 // Query isi tabel Mahasiswa
 $result = mysqli_query($conn, "SELECT * FROM mahasiswa");
 
 //ubah data ke dalam array
 $rows =[];
-while ($row = myslqi_fetch_assoc($result)){
+while ($row = mysqli_fetch_assoc($result)){
     $rows[] = $row;
 }
 
@@ -42,7 +42,7 @@ $mahasiswa = $rows;
     <tr>
         <td><?= $m['id']; ?></td>
         <td>
-            <img src="<?= $m['gambar']; ?>" alt="">
+            <img src="<?= $m['gambar']; ?>" alt="" width="200px" height="200px">
         </td>
         <td><?= $m['nrp']; ?></td>
         <td><?= $m['nama']; ?></td>

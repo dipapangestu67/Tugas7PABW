@@ -1,5 +1,5 @@
 <?php
-require 'function.php';
+require 'functions.php';
 $mahasiswa = query("SELECT * FROM mahasiswa");
 ?>
 <!DOCTYPE html>
@@ -29,7 +29,7 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
     <tr>
         <td><?= $m['id']; ?></td>
         <td>
-            <img src="<?= $m['gambar']; ?>" alt="">
+            <img src="<?= $m['gambar']; ?>" alt="" width="200px" height="200px">
         </td>
         <td><?= $m['nrp']; ?></td>
         <td><?= $m['nama']; ?></td>

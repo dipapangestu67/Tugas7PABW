@@ -1,5 +1,5 @@
 <?php
-require 'function.php';
+require 'functions.php';
 $mahasiswa = query("SELECT * FROM mahasiswa");
 ?>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
 <body>
     <h3>Daftar Mahasiswa</h3>
 
-    
+
 
     <table border="1" cellpadding="10" cellspacing="0">
     <tr>
@@ -24,18 +24,18 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
     </tr>
 
 
-    <?php foreach($mahasiswa as $m) :?>
+    <?php foreach ($mahasiswa as $m) : ?>
     <tr>
         <td><?= $m['id']; ?></td>
         <td>
-            <img src="<?= $m['gambar']; ?>" alt="">
+            <img src="<?= $m['gambar']; ?>" alt="" width="200px" height="200px">
         </td>
         <td><?= $m['nama']; ?></td>
         <td>
             <a href="detail.php?id=<?= $m['id']; ?>">lihat detail</a> 
         </td>
     </tr>    
-    <?php endforeach;?>
+    <?php endforeach; ?>
     </table>
     
 
